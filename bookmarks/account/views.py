@@ -42,3 +42,6 @@ def user_login(request):
             
     except Exception as e:
         print(e)
+        
+    # super user
+    #username = hunter001 password = Abhi1998@
