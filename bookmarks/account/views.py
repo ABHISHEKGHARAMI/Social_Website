@@ -10,38 +10,36 @@ from .forms import LoginForm
 
 # login view
 def user_login(request):
-    try:
-        if request.method == 'POST':
-            form = LoginForm(request.POST)
-            if form.is_valid :
-                cd = form.cleaned_data
-                user = authenticate(
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        #print(form)
+        if form.is_valid :
+            cd = form.cleaned_data
+            user = authenticate(
                     request,
                     username = cd['username'],
                     password = cd['password']
                 )
-                if user is not None:
-                    if user.is_active:
-                        login(user)
-                        return HttpResponse("Authenticated Successfully.")
-                    else:
-                        return HttpResponse("User is inactive.")
+            if user is not None:
+                if user.is_active:
+                    login(request,user)
+                    return HttpResponse("Authenticated Successfully.")
                 else:
-                    return HttpResponse("Invalid Login.")
-        else:
-            form = LoginForm()
+                    return HttpResponse("User is inactive.")
+            else:
+                return HttpResponse("Invalid Login.")
+    else:
+        form = LoginForm()
         
         # returning
-        return render(
+    return render(
             request,
             'account/login.html',
             {
                 'form':form
             }
         )
-            
-    except Exception as e:
-        print(e)
+
         
     # super user
     #username = hunter001 password = Abhi1998@
