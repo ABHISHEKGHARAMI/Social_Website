@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title%}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{% static "css/base.css" %}" rel="stylesheet">
+    </head>
+    <body>
+        <div id="header">
+        <span class="logo">BookMarks</span>
+        </div>
+
+        <div id="content">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </body>
+</html>
