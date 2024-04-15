@@ -12,7 +12,7 @@ from .forms import LoginForm
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
-        #print(form)
+        print(form)
         if form.is_valid :
             cd = form.cleaned_data
             user = authenticate(
