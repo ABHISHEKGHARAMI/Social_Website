@@ -6,6 +6,9 @@ from django.contrib.auth import authenticate , login
 # importing the form 
 from .forms import LoginForm
 
+#using the decorator
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 # login view
@@ -43,3 +46,10 @@ def user_login(request):
         
     # super user
     #username = hunter001 password = Abhi1998@
+@login_required
+def dashboard(request):
+    return render(
+        request,
+        'account/dashboard.html'
+        {'section':'dashboard'}
+    )
