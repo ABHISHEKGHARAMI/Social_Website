@@ -50,6 +50,6 @@ def user_login(request):
 def dashboard(request):
     return render(
         request,
-        'account/dashboard.html'
+        'account/dashboard.html',
         {'section':'dashboard'}
     )
