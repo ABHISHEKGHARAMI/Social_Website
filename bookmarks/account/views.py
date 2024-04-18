@@ -59,6 +59,7 @@ def dashboard(request):
 def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
+        print(user_form)
         if user_form.is_valid():
             new_user = user_form.save(commit=False)
             new_user.set_password(
