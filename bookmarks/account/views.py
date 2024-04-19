@@ -8,6 +8,8 @@ from .forms import LoginForm , UserRegistrationForm
 
 #using the decorator
 from django.contrib.auth.decorators import login_required
+# importing the model
+from .models import Profile
 
 # Create your views here.
 
@@ -66,6 +68,8 @@ def register(request):
                 user_form.cleaned_data['password']
             )
             new_user.save()
+            #saving the new user profile
+            Profile.objects.create(user=new_user)
             return render(request,
                 'account/register_done.html',
                 {
