@@ -38,7 +38,7 @@ Hello {{ request.user.first_name|default:request.user.username }},
            {% for message in messages %}
              <li class="{{ message.tags }}">
                {{ message|safe }}
-               <a href="#" class="close">x</a>
+               <a href="{%url "dashboard" %}" class="close">x</a>
              </li>
            {% endfor %}
            </ul>
