@@ -32,10 +32,13 @@ def user_login(request):
                 if user.is_active:
                     login(request,user)
                     return HttpResponse("Authenticated Successfully.")
+                    
                 else:
                     return HttpResponse("User is inactive.")
+                
             else:
                 return HttpResponse("Invalid Login.")
+            
     else:
         form = LoginForm()
         
