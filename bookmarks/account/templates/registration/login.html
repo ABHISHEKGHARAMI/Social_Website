@@ -25,5 +25,14 @@ If you don't have an account <a href="{% url "register" %}">register</a> here.
 <a href="{% url "password_reset"%}">Forget password?
 </a></p>
 
+<div class="social">
+<ul>
+<li class="facebook">
+<a href="{% url "social:begin" "facebook"%}"></a>
+Sign up with facebook
+</li>
+</ul>
+</div>
+
 </div>
 {% endblock %}
