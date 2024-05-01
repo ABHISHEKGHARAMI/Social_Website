@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.conf import settings
+from django.utils.text import slugify
 
 
 # creating the model
@@ -30,6 +31,12 @@ class Image(models.Model):
     
     def __str__(self):
         return self.title
+    
+    
+    def save(self,*args,**kargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args,**kargs)
 
 
     
