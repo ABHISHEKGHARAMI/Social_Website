@@ -26,7 +26,7 @@ class Image(models.Model):
     
     
     #  meta class
-    class meta:
+    class Meta:
         indexes = [
             models.Index(fields=['-created'])
         ]
