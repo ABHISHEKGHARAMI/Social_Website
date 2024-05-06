@@ -46,8 +46,7 @@ method: 'POST',
 headers: {'X-CSRFToken': csrftoken},
 mode: 'same-origin'
 }
-document.querySelector('a.like')
-.addEventListener('click', function(e){
+document.querySelector('a.like').addEventListener('click', function(e){
 e.preventDefault();
 var likeButton = this;
 // add request body
