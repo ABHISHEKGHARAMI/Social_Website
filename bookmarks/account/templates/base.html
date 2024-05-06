@@ -48,5 +48,13 @@ Hello {{ request.user.first_name|default:request.user.username }},
         {% block content %}
         {% endblock %}
         </div>
+      <script>
+       document.addEventListener('DOMContentLoaded',(event)=>{
+        // dom reload
+        {% block domready %}
+        
+        {% endblock %}
+       })
+      </script>
     </body>
 </html>
