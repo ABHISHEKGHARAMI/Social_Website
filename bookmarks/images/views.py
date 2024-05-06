@@ -6,6 +6,8 @@ from .models import Image
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
+from django.http import HttpResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 @login_required
 def image_create(request):
@@ -64,3 +66,9 @@ def image_like(request):
     return JsonResponse({
         'status' : 'error'
     })
+    
+    
+# image list after the login
+@login_required
+def image_list(request):
+    pass
